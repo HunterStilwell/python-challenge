@@ -45,15 +45,38 @@ with open(election_data_csv, 'r') as csvFile:
         elif candidateName == candidates[2]:
             candidate3Votes += 1
 
+    # Determine the percentage of votes each candidate won
+    candidate1VotePercent = round(candidate1Votes / totalVotes * 100, 3)
+    candidate2VotePercent = round(candidate2Votes / totalVotes * 100, 3)
+    candidate3VotePercent = round(candidate3Votes / totalVotes * 100, 3)
+
+    # create a list with the number of votes
+    voteList = [candidate1Votes, candidate2Votes, candidate3Votes]
+
+    # find the max amount of votes
+    voteListMax = max(voteList)
+
+    # zip the candidate list and vote list
+    candidateVoteList = list(zip(candidates, voteList))
+
+    
+    # Determine the winner of the election\
+    # for loop that goes through the list candidateVoteList
+    for candidate in candidateVoteList:
+        # conditional to find the max and place the candidate with the max amount of votes in the election winner variable
+        if candidate[1] == voteListMax:
+            electionWinner = candidate[0]
+            
+
+
     # print the results in the terminal
     print("Election Results")
     print('------------------------')
     print(f"Total Votes: {totalVotes}")
     print('------------------------')
-    print(f"{candidates[0]}: ({candidate1Votes})")
-    print(f"{candidates[1]}: ({candidate2Votes})")
-    print(f"{candidates[2]}: ({candidate3Votes})")
+    print(f"{candidates[0]}: {candidate1VotePercent}% ({candidate1Votes})")
+    print(f"{candidates[1]}: {candidate2VotePercent}% ({candidate2Votes})")
+    print(f"{candidates[2]}: {candidate3VotePercent}% ({candidate3Votes})")
     print('------------------------')
-    print(f"Winner: ")
+    print(f"Winner: {electionWinner}")
     print('------------------------')
-    
