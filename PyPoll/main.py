@@ -5,6 +5,9 @@ import os
 # path to election data
 election_data_csv = os.path.join("Resources", "election_data.csv")
 
+#path to the text file that will be created with the analysis results
+electionAnalysis = os.path.join("analysis", "election_analysis.txt")
+
 # open/read the csv file
 with open(election_data_csv, 'r') as csvFile:
 
@@ -71,12 +74,30 @@ with open(election_data_csv, 'r') as csvFile:
 
     # print the results in the terminal
     print("Election Results")
-    print('------------------------')
+    print("------------------------")
     print(f"Total Votes: {totalVotes}")
-    print('------------------------')
+    print("------------------------")
     print(f"{candidates[0]}: {candidate1VotePercent}% ({candidate1Votes})")
     print(f"{candidates[1]}: {candidate2VotePercent}% ({candidate2Votes})")
     print(f"{candidates[2]}: {candidate3VotePercent}% ({candidate3Votes})")
-    print('------------------------')
+    print("------------------------")
     print(f"Winner: {electionWinner}")
-    print('------------------------')
+    print("------------------------")
+
+# open the analysis file in writing mode
+with open(electionAnalysis, 'w') as textFile:
+
+    # the ouput that should be written in the analysis file
+    output = "Election Results\n"
+    output += "------------------------\n"
+    output += f"Total Votes: {totalVotes}\n"
+    output += "------------------------\n"
+    output += f"{candidates[0]}: {candidate1VotePercent}% ({candidate1Votes})\n"
+    output += f"{candidates[1]}: {candidate2VotePercent}% ({candidate2Votes})\n"
+    output += f"{candidates[2]}: {candidate3VotePercent}% ({candidate3Votes})\n"
+    output += "------------------------\n"
+    output += f"Winner: {electionWinner}\n"
+    output += "------------------------\n"
+
+    # write the data in the analysis file
+    textFile.write(output)
