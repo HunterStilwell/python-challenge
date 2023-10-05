@@ -75,17 +75,17 @@ with open(budget_data_csv, 'r') as csvFile:
     print(f"Greatest Increase in Profits: {greatestIncreaseMonth} (${greatestIncrease})")
     print(f"Greatest Decrease in Profits: {greatestDecreaseMonth} (${greatestDecrease})")
 
-    # open the analysis file in writing mode
-    with open(financialAnalysis, 'w') as textFile:
+# open the analysis file in writing mode
+with open(financialAnalysis, 'w') as textFile:
 
-        # the output that should be written in the analysis file
-        output = "Financial Analysis\n"
-        output += "----------------------------\n"
-        output += f"Total Months: {totalMonths}\n"
-        output += f"Total: ${totalAmount}\n"
-        output += f"Average Change: ${averageChange}\n"
-        output += f"Greatest Increase in Profits: {greatestIncreaseMonth} (${greatestIncrease})\n"
-        output += f"Greatest Decrease in Profits: {greatestDecreaseMonth} (${greatestDecrease})\n"
+    # the output that should be written in the analysis file
+    output = "Financial Analysis\n"
+    output += "----------------------------\n"
+    output += f"Total Months: {totalMonths}\n"
+    output += f"Total: ${totalAmount}\n"
+    output += f"Average Change: ${averageChange}\n"
+    output += f"Greatest Increase in Profits: {greatestIncreaseMonth} (${greatestIncrease})\n"
+    output += f"Greatest Decrease in Profits: {greatestDecreaseMonth} (${greatestDecrease})\n"
 
-        # write the data in the analysis file
-        textFile.write(output)
+    # write the data in the analysis file
+    textFile.write(output)
