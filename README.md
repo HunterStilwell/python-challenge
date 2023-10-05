@@ -1,3 +1,3 @@
 # python-challenge
 -------------------
-I did not use any code from another source.
+I did not use code from another source.
